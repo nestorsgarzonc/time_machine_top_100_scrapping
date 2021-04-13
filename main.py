@@ -4,8 +4,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
 load_dotenv()
-
-date = '2021-04-13'  # input('Enter date to scratch YYYY-MM-DD: ')
+date = input('Enter date to scratch YYYY-MM-DD: ')
 song_names = get_name_songs(date)
 
 spotipy_sesion = spotipy.Spotify(
@@ -22,8 +21,10 @@ spotipy.prompt_for_user_token(
     user_id, scope='playlist-modify-public', redirect_uri='http://localhost'
 )
 
+
 def get_user_token():
     return spotipy_sesion.current_user()
+
 
 def get_spotify_id_songs():
     spotipy_songs = []
